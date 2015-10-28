@@ -14,10 +14,12 @@ rvm use 2.2.0
 gem install bundle
 
 # install mongodb
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | sudo tee -a /etc/apt/sources.list.d/10gen.list
-sudo apt-get -y update
-sudo apt-get -y install mongodb-10gen
+echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+
+# install nodejs (somehow rails needs it)
+sudo apt-get install -y nodejs
 
 # get app code
 sudo apt-get install -y git
