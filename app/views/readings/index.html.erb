@@ -1,28 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div id="page-wrapper">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Dashboard</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i> Electricity Readings
+            <div class="pull-right">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default btn-xs">Add Reading</button>
+              </div>
+            </div>
 
-<h1>Listing Readings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Reading</th>
-      <th>Reading date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @readings.each do |reading| %>
-      <tr>
-        <td><%= reading.reading %></td>
-        <td><%= reading.reading_date %></td>
-        <td><%= link_to 'Show', reading %></td>
-        <td><%= link_to 'Edit', edit_reading_path(reading) %></td>
-        <td><%= link_to 'Destroy', reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Reading</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @readings.each do |reading| %>
+                    <tr>
+                      <td><%= reading.reading %></td>
+                      <td><%= reading.reading_date %></td>
+                      <td><%= link_to 'Show', reading %></td>
+                      <td><%= link_to 'Edit', edit_reading_path(reading) %></td>
+                      <td><%= link_to 'Destroy', reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.table-responsive -->
+          </div>
+          <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+      </div>
+      <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
 
 <br>
 
