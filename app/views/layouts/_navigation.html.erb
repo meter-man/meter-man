@@ -6,6 +6,7 @@
   <!-- /.navbar-header -->
 
   <ul class="nav navbar-top-links navbar-right">
+  <% if user_signed_in? %>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -20,6 +21,13 @@
       <!-- /.dropdown-user -->
     </li>
     <!-- /.dropdown -->
+  <% else %>
+    <li><a href="#"><i class="fa fa-sign-in fa-fw"></i> Log In</i></a>
+    </li>
+    <li><a href="#"><i class="fa fa-user-plus fa-fw"></i> Sign Up</i></a>
+    </li>
+  <% end %>
   </ul>
   <!-- /.navbar-top-links -->
+
 </nav>
