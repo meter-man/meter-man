@@ -4,10 +4,12 @@
     <a class="navbar-brand" href="#">Meter-Man</a>
   </div>
   <!-- /.navbar-header -->
-<% if user_signed_in? %>
+
   <ul class="nav navbar-top-links navbar-right">
+  <% if user_signed_in? %>
     <li><p><%= current_user.email%></p>
     </li>
+  <% end %>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -31,6 +33,5 @@
     <!-- /.dropdown -->
   </ul>
   <!-- /.navbar-top-links -->
-<% end %>
 
 </nav>
