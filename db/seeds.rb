@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Apply appropriate seed (dev vs. prod)
+load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
