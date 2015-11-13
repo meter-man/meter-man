@@ -1,13 +1,11 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, html: { class: 'form-signin'}) do |f| %>
   <%= devise_error_messages! %>
   <h2>Forgot your password?</h2>
-<br />
   <div class="field">
     <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
   </div>
-<br />
   <div class="actions">
-    <%= f.submit "Send me reset password instructions", class: 'btn btn-lg btn-primary btn-lg' %>
+    <%= f.submit "Update Password", class: 'btn btn-lg btn-primary btn-lg' %>
   </div>
   <%= render "devise/shared/links" %>
 <% end %>
