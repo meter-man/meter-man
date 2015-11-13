@@ -24,8 +24,8 @@ class ReadingsController < ApplicationController
   # POST /readings
   # POST /readings.json
   def create
-    @reading = current_user.readings.build(reading_params)
-
+    @new_params = reading_params.merge(:cost => Reading.cost_calculation(current_user, params['reading']['reading']))
+    @reading = current_user.readings.build(@new_params)
     respond_to do |format|
       if @reading.save
         format.html { redirect_to @reading, notice: 'Reading was successfully created.' }
