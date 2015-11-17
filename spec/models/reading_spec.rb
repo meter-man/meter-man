@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Reading, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should show error if reading is smaller than previous reading"
+  
+  it "should show error if reading is larger than next reading"
 end
