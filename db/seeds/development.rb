@@ -15,7 +15,6 @@ user_1 = User.create(
     reading_date: "2015-#{month}-01",
     created_at: "2015-#{month}-01 [12:00:00]",
     updated_at: "2015-#{month}-01 [12:00:00]",
-    user_id: user_1.id,
-    cost: 1000 * 0.28
+    user_id: user_1.id
   )
 end
