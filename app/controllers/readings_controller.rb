@@ -3,8 +3,19 @@ class ReadingsController < ApplicationController
   before_action :authenticate_user!
   # GET /readings
   # GET /readings.json
+  def calculate_cost
+    if @readings == nil
+      cost = nil
+    elsif @readings.length == 1
+      cost = [0]
+    else
+      cost = @readings.each_cons(2).map { |a,b| (b.reading-a.reading) * 0.28 }.unshift(0)
+    end
+  end
+
   def index
-    @readings = current_user.readings
+    @readings = current_user.readings #.order(reading_date: :asc)
+    @cost = calculate_cost
   end
 
   # GET /readings/1
@@ -24,8 +35,8 @@ class ReadingsController < ApplicationController
   # POST /readings
   # POST /readings.json
   def create
-    @new_params = reading_params.merge(:cost => Reading.cost_calculation(current_user, params['reading']['reading']))
-    @reading = current_user.readings.build(@new_params)
+    # @new_params = reading_params.merge(:cost => Reading.cost_calculation(current_user, params['reading']['reading']))
+    @reading = current_user.readings.build(reading_params)
     respond_to do |format|
       if @reading.save
         format.html { redirect_to @reading, notice: 'Reading was successfully created.' }
