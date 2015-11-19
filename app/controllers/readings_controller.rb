@@ -14,7 +14,7 @@ class ReadingsController < ApplicationController
   end
 
   def index
-    @readings = current_user.readings #.order(reading_date: :asc)
+    @readings = current_user.readings.order(reading_date: :asc)
     @cost = calculate_cost
   end
 
