@@ -36,7 +36,12 @@ RSpec.describe Reading, type: :model do
   end
   
   it "should show error if reading is larger than next reading" do
-
-
-  end
+	reading = Reading.create(
+	    reading: 11000,
+	    reading_date: "2015-5-19",
+	    user_id: 1
+	  )
+	reading.valid?
+	expect(reading.errors[:reading]).to include('is not within allowable range')
+ end
 end
