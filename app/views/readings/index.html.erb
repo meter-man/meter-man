@@ -32,8 +32,8 @@
                 <tbody>
                   <% @readings.zip(@cost).each do |reading, cost| %>
                     <tr>
-                      <td><%= reading.reading %></td>
                       <td><%= reading.reading_date %></td>
+                      <td><%= reading.reading %></td>
                       <td><%= cost %></td>
                       <td><%= link_to 'Show', reading %></td>
                       <td><%= link_to 'Edit', edit_reading_path(reading) %></td>
