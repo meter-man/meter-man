@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :readings
-  root 'readings#index'
+  authenticated :user do
+    root to: 'readings#index', as: :authenticated_root
+  end
+  root to: redirect('/users/sign_in')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
