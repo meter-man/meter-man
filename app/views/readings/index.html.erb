@@ -15,7 +15,6 @@
             <%= button_to 'Add Reading', new_reading_path, method: :get, class: 'btn btn-default btn-xs' %>
           </div>
         </div>
-
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -32,9 +31,9 @@
             <tbody>
               <% @readings.zip(@cost).each do |reading, cost| %>
                 <tr>
-                  <td><%= reading.reading %></td>
                   <td><%= reading.reading_date %></td>
-                  <td><%= cost %></td>
+                  <td><%= reading.reading %></td>
+                  <td><%= number_to_currency(cost) %></td>
                   <td><%= link_to 'Show', reading %></td>
                   <td><%= link_to 'Edit', edit_reading_path(reading) %></td>
                   <td><%= link_to 'Destroy', reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
