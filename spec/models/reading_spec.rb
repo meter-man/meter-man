@@ -44,4 +44,14 @@ RSpec.describe Reading, type: :model do
 	reading.valid?
 	expect(reading.errors[:reading]).to include('is not within allowable range')
  end
+
+ it "should show error if reading is negative number" do
+ 	reading = Reading.create(
+ 		reading: -15,
+ 		reading_date: "2014-12-01",
+ 		user_id: 1
+ 		)
+ 	reading.valid?
+ 	expect(reading.errors[:reading]).to include('is not within allowable range')
+ end
 end
