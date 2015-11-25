@@ -4,7 +4,7 @@ class Reading < ActiveRecord::Base
 
   def reading_within_allowable_range
     readings = Reading.where(user_id: self.user_id)
-    if readings.count == 0
+    if readings.count == 0 && self.reading > 0
       return true
     end
     record_before = Reading
@@ -17,7 +17,8 @@ class Reading < ActiveRecord::Base
       .first
     too_low = !record_before.nil? && (self.reading < record_before.reading)
     too_high = !record_after.nil? && (self.reading > record_after.reading)
-    if too_low || too_high
+    negative = self.reading < 0
+    if too_low || too_high || negative
       errors.add(:reading, 'is not within allowable range')
     end
   end
