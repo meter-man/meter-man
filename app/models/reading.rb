@@ -22,15 +22,4 @@ class Reading < ActiveRecord::Base
       errors.add(:reading, 'is not within allowable range')
     end
   end
-
-	# #def validation_with_negative_numbers
-	# 	readings = Reading.where(user_id: self.user_id)
-	# 	if readings.count < 0
-	# 		errors.add(:reading, 'is not within allowable range')
-	# 		return false
-	# 	else 
-	# 		return true
-	# 	end
-
-
 end
