@@ -16,13 +16,33 @@
       </a>
       <ul class="dropdown-menu dropdown-user">
       <% if user_signed_in? %>
-        <li><%= link_to(' Logout', destroy_user_session_path, :method => :delete, class: "fa fa-sign-out fa-fw") %></li>
+        <li>
+          <%= link_to(destroy_user_session_path, :method => :delete) do %>
+            <i class="fa fa-sign-out fa-fw"></i>
+            Logout
+          <% end %>
+        </li>
         <li class="divider"></li>
-        <li><%= link_to(' Edit registration', edit_user_registration_path, class: "fa fa-user fa-fw" ) %></li>
+        <li>
+          <%= link_to(edit_user_registration_path) do %>
+            <i class="fa fa-user fa-fw"></i>
+            Edit Registration
+          <% end %>
+        </li>
       <% else %>
-        <li><%= link_to(' Login', new_user_session_path, class: "fa fa-sign-in fa-fw")  %></li>
+        <li>
+          <%= link_to(new_user_session_path) do %>
+            <i class="fa fa-sign-in fa-fw"></i>
+            Login
+          <% end %>
+        </li>
         <li class="divider"></li>
-        <li><%= link_to(' Register', new_user_registration_path, class: "fa fa-user fa-fw")  %></li>
+        <li>
+          <%= link_to(new_user_registration_path) do %>
+            <i class="fa fa-user fa-fw"></i>
+            Register
+          <% end %>
+        </li>
       <% end %>
       </ul>
       <!-- /.dropdown-user -->

@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="form-devise">
+  <p>
+    <strong>Reading:</strong>
+    <%= @reading.reading %>
+  </p>
 
-<p>
-  <strong>Reading:</strong>
-  <%= @reading.reading %>
-</p>
+  <p>
+    <strong>Reading date:</strong>
+    <%= @reading.reading_date %>
+  </p>
 
-<p>
-  <strong>Reading date:</strong>
-  <%= @reading.reading_date %>
-</p>
-
-<%= link_to 'Edit', edit_reading_path(@reading) %> |
-<%= link_to 'Back', readings_path %>
+  <%= link_to 'Edit', edit_reading_path(@reading), class: 'btn btn-lg btn-primary btn-block' %>
+  <%= link_to 'Back', readings_path %>
+</div>
