@@ -1,11 +1,11 @@
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, html: { class: 'form-signin'}) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, html: { class: 'form-devise'}) do |f| %>
   <%= devise_error_messages! %>
   <h2>Forgot your password?</h2>
   <div class="field">
     <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
   </div>
   <div class="actions">
-    <%= f.submit "Update Password", class: 'btn btn-lg btn-primary btn-lg' %>
+    <%= f.submit "Update Password", class: 'btn btn-lg btn-primary' %>
   </div>
   <%= render "devise/shared/links" %>
 <% end %>
