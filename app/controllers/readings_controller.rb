@@ -14,7 +14,7 @@ class ReadingsController < ApplicationController
   end
 
   def index
-    @readings = current_user.readings.order(reading_date: :asc)
+    @readings = current_user.readings.order(reading_date: :asc).paginate(:page => params[:page], :per_page => 5)
     @cost = calculate_cost
   end
 
