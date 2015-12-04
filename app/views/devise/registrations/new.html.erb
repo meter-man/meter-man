@@ -5,6 +5,12 @@
     <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
   </div>
   <div class="field">
+    <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'Username' %>
+  </div>
+  <div class="field">
+    <%= f.text_field :zip, autofocus: true, class: 'form-control', placeholder: 'Zip Code' %>
+  </div>
+  <div class="field">
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />

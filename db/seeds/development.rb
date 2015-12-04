@@ -2,6 +2,8 @@
 
 # Create one user
 user_1 = User.create(
+  username: 'dev',
+  zip: 10573,
   email: 'dev@meter-man.com',
   password: '12345678',
   password_confirmation: '12345678'
