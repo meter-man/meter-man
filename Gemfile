@@ -26,6 +26,9 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'font-awesome-rails', '~> 4.4.0.0'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 
+# Gemfile for Pagination
+gem 'will_paginate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
