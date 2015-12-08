@@ -12,6 +12,10 @@ class ReadingsController < ApplicationController
     end
   end
 
+  def data
+    @all_readings = current_user.readings.order(reading_date: :asc)
+  end
+
   # GET /readings
   # GET /readings.json
   def index
