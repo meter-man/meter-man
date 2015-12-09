@@ -6,7 +6,8 @@ RSpec.describe Reading, type: :model do
 	user_1 = User.create(
 	  email: 'dev@meter-man.com',
 	  password: '12345678',
-	  password_confirmation: '12345678'
+	  password_confirmation: '12345678',
+	  username: 'Spiderman'
 	)
 
 	# Create 10 reading for the one and only user

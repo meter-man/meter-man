@@ -9,6 +9,12 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
     <div class="field">
+      <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'Username' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :zip, autofocus: true, class: 'form-control', placeholder: 'Zip Code' %>
+    </div>
+    <div class="field">
       <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current Password' %>
     </div>
     <div class="field">

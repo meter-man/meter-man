@@ -9,7 +9,7 @@
   <div class="col-lg-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <i class="fa fa-bar-chart-o fa-fw"></i> Electricity Readings
+        <i class="fa fa-table fa-lg fa-fw"></i> Electricity Readings
         <div class="pull-right">
           <div class="btn-group">
             <%= button_to 'Add Reading', new_reading_path, method: :get, class: 'btn btn-default btn-xs' %>
@@ -43,6 +43,22 @@
           </table>
         </div>
         <!-- /.table-responsive -->
+        <%= will_paginate @readings %>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-6 -->
+
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-line-chart fa-lg fa-fw"></i> Electricity Readings Plot
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <svg id="line-plot"></svg>
       </div>
       <!-- /.panel-body -->
     </div>

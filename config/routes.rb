@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :readings
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  resources :readings do
+    get 'data', on: :collection
+  end
   authenticated :user do
     root to: 'readings#index', as: :authenticated_root
   end
