@@ -1,8 +1,9 @@
+require 'will_paginate/array'
+
 class ReadingsController < ApplicationController
   before_action :set_reading, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  # GET /readings
-  # GET /readings.json
+
   def calculate_cost
     if @readings == nil
       cost = nil
@@ -13,9 +14,15 @@ class ReadingsController < ApplicationController
     end
   end
 
+  def data
+    @all_readings = current_user.readings.order(reading_date: :asc)
+  end
+
+  # GET /readings
+  # GET /readings.json
   def index
-    @readings = current_user.readings.order(reading_date: :asc).paginate(:page => params[:page], :per_page => 5)
-    @cost = calculate_cost
+    @readings = current_user.readings.order(reading_date: :asc)
+    @readings = @readings.zip(calculate_cost).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /readings/1

@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'font-awesome-rails', '~> 4.4.0.0'
 gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'd3-rails'
 
 # Gemfile for Pagination
 gem 'will_paginate'
