@@ -1,4 +1,4 @@
-$(document).ready(function() {
+var dThree = function() {
   var margin = {top: 20, right: 20, bottom: 30, left: 50},
       width = 480 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
@@ -62,4 +62,7 @@ $(document).ready(function() {
         .attr("class", "line")
         .attr("d", line);
   });
-});
+}
+
+$(document).ready(dThree);
+$(document).on('page:load', dThree)
