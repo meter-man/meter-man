@@ -21,7 +21,7 @@ class ReadingsController < ApplicationController
   # GET /readings
   # GET /readings.json
   def index
-    @readings = @all_readings.zip(calculate_cost).paginate(:page => params[:page], :per_page => 5)
+    @some_readings = @all_readings.zip(calculate_cost).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /readings/1
