@@ -15,9 +15,6 @@ class ReadingsController < ApplicationController
     end
   end
 
-  def data
-  end
-
   # GET /readings
   # GET /readings.json
   def index
