@@ -1,4 +1,5 @@
-var dThree = function() {
+(function(){
+var create_line_plot = function() {
   var margin = {top: 20, right: 20, bottom: 30, left: 50},
       width = 480 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
@@ -64,5 +65,6 @@ var dThree = function() {
   });
 }
 
-$(document).ready(dThree);
-$(document).on('page:load', dThree)
+$(document).ready(create_line_plot);
+$(document).on('page:load', create_line_plot)
+})();
