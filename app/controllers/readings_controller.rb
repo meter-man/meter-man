@@ -21,7 +21,7 @@ class ReadingsController < ApplicationController
   # GET /readings
   # GET /readings.json
   def index
-    @some_readings = @all_readings.zip(calculate_cost).paginate(:page => params[:page], :per_page => 5)
+    @some_readings = @all_readings.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /readings/1
@@ -91,5 +91,6 @@ class ReadingsController < ApplicationController
 
     def set_all_readings
       @all_readings = current_user.readings.order(reading_date: :asc)
+      @all_readings = @all_readings.zip(calculate_cost)
     end
 end

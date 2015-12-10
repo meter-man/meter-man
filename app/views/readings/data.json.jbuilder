@@ -1,4 +1,4 @@
-json.array!(@all_readings) do |reading|
+json.array!(@all_readings) do |reading, cost|
   json.extract! reading, :id, :reading, :reading_date
   json.url reading_url(reading, format: :json)
 end
