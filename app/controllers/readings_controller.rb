@@ -1,28 +1,24 @@
 require 'will_paginate/array'
 
 class ReadingsController < ApplicationController
+  before_action :set_all_readings, only: [:index, :data]
   before_action :set_reading, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def calculate_cost
-    if @readings == nil
+    if @all_readings == nil
       cost = nil
-    elsif @readings.length == 1
+    elsif @all_readings.length == 1
       cost = [0]
     else
-      cost = @readings.each_cons(2).map { |a,b| (b.reading-a.reading) * 0.28 }.unshift(0)
+      cost = @all_readings.each_cons(2).map { |a,b| (b.reading-a.reading) * 0.28 }.unshift(0)
     end
-  end
-
-  def data
-    @all_readings = current_user.readings.order(reading_date: :asc)
   end
 
   # GET /readings
   # GET /readings.json
   def index
-    @readings = current_user.readings.order(reading_date: :asc)
-    @readings = @readings.zip(calculate_cost).paginate(:page => params[:page], :per_page => 5)
+    @some_readings = @all_readings.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /readings/1
@@ -88,5 +84,10 @@ class ReadingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def reading_params
       params.require(:reading).permit(:reading, :reading_date)
+    end
+
+    def set_all_readings
+      @all_readings = current_user.readings.order(reading_date: :asc)
+      @all_readings = @all_readings.zip(calculate_cost)
     end
 end
