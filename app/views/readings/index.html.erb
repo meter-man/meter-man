@@ -31,7 +31,7 @@
             <tbody>
               <% @some_readings.each do |reading, cost| %>
                 <tr>
-                  <td><%= reading.reading_date %></td>
+                  <td><%= reading.reading_date.strftime("%m-%d-%Y") %></td>
                   <td><%= reading.reading %></td>
                   <td><%= number_to_currency(cost) %></td>
                   <td><%= link_to 'Show', reading %></td>
