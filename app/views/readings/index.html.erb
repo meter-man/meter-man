@@ -29,9 +29,9 @@
               </tr>
             </thead>
             <tbody>
-              <% @readings.each do |reading, cost| %>
+              <% @some_readings.each do |reading, cost| %>
                 <tr>
-                  <td><%= reading.reading_date %></td>
+                  <td><%= reading.reading_date.strftime("%m-%d-%Y") %></td>
                   <td><%= reading.reading %></td>
                   <td><%= number_to_currency(cost) %></td>
                   <td><%= link_to 'Show', reading %></td>
@@ -43,7 +43,7 @@
           </table>
         </div>
         <!-- /.table-responsive -->
-        <%= will_paginate @readings %>
+        <%= will_paginate @some_readings %>
       </div>
       <!-- /.panel-body -->
     </div>

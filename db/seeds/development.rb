@@ -10,13 +10,15 @@ user_1 = User.create(
 )
 
 # Create 10 reading for the one and only user
-(1..10).each do |i|
-  month = format("%02d", i)
+reading = 1000
+(5..64).each do |i|
+  month = format("%02d", i/5)
+  day = format("%02d", (i%5+1)*3)
   Reading.create(
-    reading: 1000 * i,
-    reading_date: "2015-#{month}-01",
-    created_at: "2015-#{month}-01 [12:00:00]",
-    updated_at: "2015-#{month}-01 [12:00:00]",
+    reading: reading += 250 + Random.rand(200),
+    reading_date: "2015-#{month}-#{day}",
+    created_at: "2015-#{month}-#{day} [12:00:00]",
+    updated_at: "2015-#{month}-#{day} [12:00:00]",
     user_id: user_1.id
   )
 end
