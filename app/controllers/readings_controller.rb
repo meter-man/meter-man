@@ -18,7 +18,7 @@ class ReadingsController < ApplicationController
   # GET /readings
   # GET /readings.json
   def index
-    @some_readings = @all_readings.paginate(:page => params[:page], :per_page => 5)
+    @some_readings = @all_readings.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /readings/1
