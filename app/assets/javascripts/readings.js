@@ -1,9 +1,9 @@
 (function(){
   var add_hover_feature_to_table = function() {
     $("tr").mouseover(function() {
-      $(this).find(" > .action").css("visibility","visible");
+      $(this).find(" > .action").css("visibility", "visible");
     }).mouseout(function() {
-      $(this).find(" > .action").css("visibility","hidden");
+      $(this).find(" > .action").css("visibility", "hidden");
     });
   };
 
