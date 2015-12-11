@@ -1,4 +1,12 @@
 (function(){
+  var add_hover_feature_to_table = function() {
+    $("tr").mouseover(function() {
+      $(this).find(" > .action").css("visibility","visible");
+    }).mouseout(function() {
+      $(this).find(" > .action").css("visibility","hidden");
+    });
+  };
+
   var create_line_plot = function() {
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
         width = 480 - margin.left - margin.right,
@@ -65,6 +73,11 @@
     });
   }
 
-  $(document).ready(create_line_plot);
+  var main = function() {
+    create_line_plot();
+    add_hover_feature_to_table();
+  };
+
+  $(document).ready(main);
   $(document).on('page:load', create_line_plot)
 })();
