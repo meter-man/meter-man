@@ -11,7 +11,7 @@ class ReadingsController < ApplicationController
     elsif @all_readings.length == 1
       cost = [0]
     else
-      cost = @all_readings.each_cons(2).map { |a,b| (b.reading-a.reading) * 0.28 }.unshift(0)
+      cost = @all_readings.each_cons(2).map { |a,b| ((b.reading-a.reading) * 0.28).round(2) }.unshift(0)
     end
   end
 
