@@ -78,6 +78,5 @@
     add_hover_feature_to_table();
   };
 
-  $(document).ready(main);
-  $(document).on('page:load', create_line_plot)
+  $(document).on('page:change', main)
 })();
