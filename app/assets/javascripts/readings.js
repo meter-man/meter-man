@@ -76,6 +76,7 @@
   var main = function() {
     create_line_plot();
     add_hover_feature_to_table();
+    $('.table-tooltip').tooltip();
   };
 
   $(document).on('page:change', main)
