@@ -7,11 +7,11 @@ class Reading < ActiveRecord::Base
     if readings.count == 0 && self.reading > 0
       return true
     end
-    record_before = Reading
+    record_before = readings
       .where("reading_date < '#{self.reading_date}'")
       .order(:reading_date)
       .last
-    record_after = Reading
+    record_after = readings
       .where("reading_date > '#{self.reading_date}'")
       .order(:reading_date)
       .first
