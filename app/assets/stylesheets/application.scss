@@ -143,6 +143,11 @@ body {
   color: #fff;
 }
 
+/* Readings table */
+td.action {
+  visibility: hidden;
+}
+
 /* D3.js Line plot */
 .axis path,
 .axis line {
